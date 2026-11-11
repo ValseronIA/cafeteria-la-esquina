@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Esquina · Cafetería de barrio</title>
+  <meta name="description" content="La Esquina, tu cafetería de barrio: café de especialidad, desayunos recién hechos y repostería casera.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="contenedor cabecera">
+      <a class="logo" href="#inicio">☕ La Esquina</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu-principal">
+        <span class="sr-only">Abrir menú</span>☰
+      </button>
+      <nav id="menu-principal" class="nav" aria-label="Navegación principal">
+        <a href="#carta">Carta</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#horario">Horario</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="hero">
+      <div class="contenedor">
+        <p class="hero-kicker">Cafetería de barrio</p>
+        <h1>El café de siempre, al lado de casa</h1>
+        <p class="hero-texto">Café de especialidad, desayunos recién hechos y repostería casera en el corazón del barrio.</p>
+        <div class="hero-acciones">
+          <a class="boton" href="#carta">Ver la carta</a>
+          <a class="boton boton-secundario" href="#contacto">Escríbenos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="carta" class="seccion">
+      <div class="contenedor">
+        <h2>Nuestra carta</h2>
+        <p class="seccion-intro">Productos de cercanía y elaboración propia. Marca con ♥ tus favoritos: se guardan solo en tu navegador.</p>
+        <div class="filtros" role="group" aria-label="Filtrar la carta">
+          <button class="filtro activo" data-categoria="todos">Todos</button>
+          <button class="filtro" data-categoria="cafe">Cafés</button>
+          <button class="filtro" data-categoria="desayuno">Desayunos</button>
+          <button class="filtro" data-categoria="dulce">Dulces</button>
+        </div>
+        <div id="lista-carta" class="rejilla-carta" aria-live="polite"></div>
+        <p class="nota-datos">
+          Datos de ejemplo guardados en este navegador.
+          <button id="reiniciar-datos" class="boton-texto" type="button">Reiniciar datos de ejemplo</button>
+        </p>
+      </div>
+    </section>
+
+    <section id="nosotros" class="seccion seccion-alt">
+      <div class="contenedor">
+        <h2>De barrio desde 1998</h2>
+        <p class="seccion-intro">La Esquina lleva más de veinticinco años siendo el punto de encuentro del barrio. Trabajamos con tostadores locales y horneamos cada mañana.</p>
+        <div class="rejilla-valores">
+          <article class="valor">
+            <h3>☕ Café de especialidad</h3>
+            <p>Grano de tueste semanal, de pequeñas fincas y tostado a 20 km de aquí.</p>
+          </article>
+          <article class="valor">
+            <h3>🥐 Horno propio</h3>
+            <p>Croissants, bizcochos y pan de masa madre salen de nuestro horno cada día.</p>
+          </article>
+          <article class="valor">
+            <h3>🤝 Cercanía</h3>
+            <p>Mesa libre para quien estudia, precio de barrio y trato de confianza.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="horario" class="seccion">
+      <div class="contenedor">
+        <h2>Horario y dónde estamos</h2>
+        <div class="rejilla-info">
+          <div class="info-bloque">
+            <h3>Horario</h3>
+            <table class="tabla-horario">
+              <tbody>
+                <tr><th scope="row">Lunes a viernes</th><td>7:00 – 20:00</td></tr>
+                <tr><th scope="row">Sábados</th><td>8:00 – 14:00</td></tr>
+                <tr><th scope="row">Domingos</th><td>9:00 – 13:00</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="info-bloque">
+            <h3>Dirección</h3>
+            <address>
+              Calle del Olmo, 12<br>
+              14001 Córdoba<br>
+              <a href="tel:+34957000000">957 000 000</a><br>
+              <a href="mailto:hola@laesquina.example">hola@laesquina.example</a>
+            </address>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion seccion-alt">
+      <div class="contenedor">
+        <h2>Contacto</h2>
+        <p class="seccion-intro">¿Grupo grande, tarta por encargo o cualquier duda? Escríbenos y te respondemos en el día.</p>
+
+        <form class="formulario" name="contacto" method="POST" action="gracias.html" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contacto">
+          <p class="oculto">
+            <label>No rellenes esto si eres humano: <input name="bot-field"></label>
+          </p>
+
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="campo">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="campo">
+            <label for="telefono">Teléfono <span class="opcional">(opcional)</span></label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel">
+          </div>
+
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+
+          <div class="campo campo-check">
+            <label>
+              <input type="checkbox" name="privacidad" value="aceptada" required>
+              Acepto que mis datos se usen solo para responder a este mensaje.
+            </label>
+          </div>
+
+          <button class="boton" type="submit">Enviar mensaje</button>
+          <p id="form-aviso" class="form-aviso" role="status" hidden></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <p>☕ La Esquina · Calle del Olmo, 12 · 14001 Córdoba</p>
+      <p class="nota-footer">Proyecto de práctica: negocio, datos y productos ficticios. <span id="anio"></span></p>
+    </div>
+  </footer>
+
+</body>
+</html>

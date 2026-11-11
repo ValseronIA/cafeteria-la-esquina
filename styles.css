@@ -1,0 +1,462 @@
+/* La Esquina · Cafetería de barrio — hoja de estilos mobile-first */
+
+:root {
+  --color-fondo: #faf6f0;
+  --color-fondo-alt: #f1e8dc;
+  --color-texto: #2e2019;
+  --color-texto-suave: #6d5c4e;
+  --color-acento: #8a5a33;
+  --color-acento-oscuro: #6f4423;
+  --color-tarjeta: #ffffff;
+  --color-borde: #e4d8c8;
+  --radio: 14px;
+  --sombra: 0 2px 10px rgba(46, 32, 25, 0.08);
+  --ancho-max: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+img, svg { max-width: 100%; }
+
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.oculto { display: none; }
+
+/* ---------- Cabecera ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(250, 246, 240, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  text-decoration: none;
+}
+
+.nav-toggle {
+  font-size: 1.4rem;
+  line-height: 1;
+  padding: 6px 10px;
+  background: none;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  color: var(--color-texto);
+  cursor: pointer;
+}
+
+.nav {
+  display: none;
+  position: absolute;
+  left: 0; right: 0; top: 100%;
+  flex-direction: column;
+  background: var(--color-fondo);
+  border-bottom: 1px solid var(--color-borde);
+  padding: 8px 20px 16px;
+  gap: 4px;
+}
+
+.nav.abierto { display: flex; }
+
+.nav a {
+  padding: 10px 4px;
+  color: var(--color-texto);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.nav a:hover, .nav a:focus-visible { color: var(--color-acento); }
+
+/* ---------- Secciones ---------- */
+
+section[id] { scroll-margin-top: 70px; }
+
+.seccion { padding: 56px 0; }
+
+.seccion-alt { background: var(--color-fondo-alt); }
+
+.seccion h2 {
+  margin: 0 0 12px;
+  font-size: 1.7rem;
+  line-height: 1.25;
+}
+
+.seccion-intro {
+  margin: 0 0 28px;
+  color: var(--color-texto-suave);
+  max-width: 60ch;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  background: linear-gradient(160deg, #6f4423 0%, #8a5a33 55%, #a9743f 100%);
+  color: #fff;
+  padding: 80px 0 72px;
+  text-align: center;
+}
+
+.hero-kicker {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.hero h1 {
+  margin: 0 0 14px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.hero-texto {
+  margin: 0 auto 28px;
+  max-width: 46ch;
+  opacity: 0.95;
+}
+
+.hero-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-block;
+  padding: 13px 28px;
+  background: var(--color-acento);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.boton:hover, .boton:focus-visible { background: var(--color-acento-oscuro); }
+
+.hero .boton { background: #fff; color: var(--color-acento-oscuro); }
+
+.hero .boton-secundario {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+}
+
+.hero .boton-secundario:hover { background: rgba(255, 255, 255, 0.12); }
+
+.boton-texto {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-acento);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Carta ---------- */
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.filtro {
+  padding: 8px 18px;
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--color-texto-suave);
+  cursor: pointer;
+}
+
+.filtro.activo {
+  background: var(--color-acento);
+  border-color: var(--color-acento);
+  color: #fff;
+}
+
+.rejilla-carta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.tarjeta {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 20px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tarjeta-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tarjeta h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.tarjeta p {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.tarjeta-precio {
+  margin-top: 8px;
+  font-weight: 700;
+  color: var(--color-acento);
+}
+
+.favorito {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  width: 38px; height: 38px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #b8a48c;
+  line-height: 1;
+}
+
+.favorito.activo {
+  color: #c0392b;
+  border-color: #c0392b;
+}
+
+.nota-datos {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+
+/* ---------- Nosotros ---------- */
+
+.rejilla-valores {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.valor {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 20px;
+  box-shadow: var(--sombra);
+}
+
+.valor h3 { margin: 0 0 6px; font-size: 1.05rem; }
+
+.valor p { margin: 0; color: var(--color-texto-suave); font-size: 0.95rem; }
+
+/* ---------- Horario y dirección ---------- */
+
+.rejilla-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.info-bloque {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 20px;
+  box-shadow: var(--sombra);
+}
+
+.info-bloque h3 { margin: 0 0 10px; font-size: 1.05rem; }
+
+.tabla-horario {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-horario th, .tabla-horario td {
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-borde);
+  font-weight: 500;
+}
+
+.tabla-horario tr:last-child th, .tabla-horario tr:last-child td { border-bottom: none; }
+
+.tabla-horario td { text-align: right; color: var(--color-texto-suave); }
+
+address { font-style: normal; color: var(--color-texto-suave); }
+
+address a { color: var(--color-acento); }
+
+/* ---------- Formulario ---------- */
+
+.formulario {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 24px;
+  box-shadow: var(--sombra);
+  max-width: 560px;
+}
+
+.campo { margin-bottom: 18px; }
+
+.campo label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.opcional { font-weight: 400; color: var(--color-texto-suave); }
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  font: inherit;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.campo input:focus, .campo textarea:focus {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 1px;
+  border-color: var(--color-acento);
+}
+
+.campo-check label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+}
+
+.campo-check input { margin-top: 4px; }
+
+.form-aviso {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #e8f3e8;
+  border: 1px solid #b8d8b8;
+  color: #2f5d2f;
+}
+
+/* ---------- Pie ---------- */
+
+.site-footer {
+  padding: 32px 0;
+  background: var(--color-texto);
+  color: #d9cfc4;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.site-footer p { margin: 4px 0; }
+
+.nota-footer { opacity: 0.7; }
+
+/* ---------- Tableta ---------- */
+
+@media (min-width: 640px) {
+  .hero h1 { font-size: 2.6rem; }
+
+  .hero-acciones { flex-direction: row; justify-content: center; }
+
+  .rejilla-carta { grid-template-columns: repeat(2, 1fr); }
+
+  .rejilla-valores { grid-template-columns: repeat(3, 1fr); }
+
+  .rejilla-info { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---------- Escritorio ---------- */
+
+@media (min-width: 960px) {
+  .nav-toggle { display: none; }
+
+  .nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 8px;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+
+  .nav a { padding: 8px 14px; }
+
+  .seccion { padding: 72px 0; }
+
+  .rejilla-carta { grid-template-columns: repeat(3, 1fr); }
+}
